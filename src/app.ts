@@ -10,7 +10,8 @@ export async function startServer() {
 
     const server = new ApolloServer({
         schema: await buildSchema({
-            resolvers: [PingResolver, ProductResolver]
+            resolvers: [PingResolver, ProductResolver],
+            validate: false
         }),
         context: ({req, res}) => ({req, res})
     });
